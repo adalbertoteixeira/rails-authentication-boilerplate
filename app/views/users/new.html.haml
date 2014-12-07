@@ -1,0 +1,20 @@
+= provide(:title, 'Sign up')
+%h1 Sign up
+%div.row
+	.small-12.large-12.columns
+		= form_for(@user) do |f|
+			= render 'shared/error_messages'
+
+			-#= f.label :name
+			= f.text_field :name, {placeholder: 'Name', 'aria-label' => 'Name'}
+			
+			-#= f.label :email, class: 'src'
+			= f.text_field :email, {placeholder: 'E-mail', 'aria-label' => 'E-mail'}
+
+			-#= f.label :password
+			= f.password_field :password, {placeholder: 'Password', 'aria-label' => 'Password'}
+
+			-#= f.label :password_confirmation
+			= f.password_field :password_confirmation, {placeholder: 'Password Confirmation', 'aria-label' => 'Password Confirmation'}
+
+			= f.submit 'Create my account', class: 'button'

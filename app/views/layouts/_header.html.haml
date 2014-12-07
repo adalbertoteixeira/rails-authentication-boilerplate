@@ -1,0 +1,23 @@
+:erb
+	<nav class="top-bar" data-topbar role="navigation">
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#">My site</a></h1>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<% if @user %>
+				
+
+			<% else %>
+				
+				<ul class="right">
+					<li class="active">
+						<a href="#">Login</a>
+					</li>
+				</ul>
+				
+			<% end %>
+			
+		</section>
+	</nav>

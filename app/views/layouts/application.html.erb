@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "App Reports" %></title>
+		<title><%= content_for?(:title) ? yield(:title) : "App Reports" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "vendor/modernizr" %>
+		<%= csrf_meta_tags %>
+	</head>
 
-  <body>
-
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
-  </body>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="row">
+			<div class="small-12">
+				<% flash.each do |message_type, message| %>
+					<div data-alert class="alert-box <%= message_type %>">
+					<%= message %>
+					</div>
+				<% end %>
+				<%= yield %>
+				<%= javascript_include_tag "application" %>
+			</div>
+			<div class="small-12">
+				<div class="panel">
+					<%= debug(params) if Rails.env.development? %>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
