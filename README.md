@@ -1,4 +1,4 @@
-rails-authentication-boilerplate
+Rails Authentication Boilerplate
 ================================
 
 A boilerplate for Rails applications based on Michael Hartl's book with Zurb's Foundation.
