@@ -1,0 +1,16 @@
+- provide(:title, 'Log in')
+%h1
+	Log in
+%div.row
+	%div.small-12.columns
+		= form_for(:session, url: login_path) do |f|
+			= f.text_field :email, {placeholder: 'Email', 'aria-label' => 'Name'}
+			= f.password_field :password, {placeholder: 'Password', 'aria-label' => 'Name'}
+
+			= f.label :remember_me, class: 'checkbox inline' do
+				= f.check_box :remember_me
+				%span Remember me on this computer
+
+			= f.submit 'Log in', class: 'button'
+		%p
+			New User? #{link_to 'Sign up now', signup_path}

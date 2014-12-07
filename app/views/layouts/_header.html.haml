@@ -1,23 +1,19 @@
-:erb
-	<nav class="top-bar" data-topbar role="navigation">
-		<ul class="title-area">
-			<li class="name">
-				<h1><a href="#">My site</a></h1>
-			</li>
-		</ul>
-		<section class="top-bar-section">
-			<% if @user %>
-				
-
-			<% else %>
-				
-				<ul class="right">
-					<li class="active">
-						<a href="#">Login</a>
-					</li>
-				</ul>
-				
-			<% end %>
-			
-		</section>
-	</nav>
+%nav{class: 'top-bar', 'data-topbar' => '', 'role' => 'navigation'}
+	%ul.title-area
+		%li.name
+			= link_to 'My site', root_url
+	%section.top-bar-section
+		%ul.right
+			= if logged_in?
+				%li.has-dropdown
+					= link_to 'Users', '#'
+					%ul.dropdown
+						%li
+							= link_to 'Profile', current_user
+						%li
+							= link_to 'Settings', '#'
+						%li
+							= link_to 'Log-out', logout_path, method: 'delete'
+			- else
+				%li.active
+					= link_to 'Login', login_url
