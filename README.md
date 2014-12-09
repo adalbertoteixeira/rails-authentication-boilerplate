@@ -13,4 +13,6 @@ On top of that it has Foundation instead of Bootstrap.
 
 ## Next
 
-At the moment this code is just part of Michael Hartl's book code, in the future it will need, at least, to implement all the test suites.
+At the moment this code is just part of Michael Hartl's book code, in the future it will need, at least, to implement all the test suites and be a generator.
+
+After that I would like to have this generator allowing for two types of sites: one offering the possibility of users creating accounts (for when that is required) and another one for when only admins will be able to create new accounts (for example for internal websites).
