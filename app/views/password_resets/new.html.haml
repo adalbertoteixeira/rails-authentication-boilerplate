@@ -1,0 +1,8 @@
+- provide(:title, 'Forgot Password')
+%h1 Forgot Password
+.row
+	.small-12.columns
+		= form_for(:password_reset, url: password_resets_path) do |f|
+			= f.text_field :email, {placeholder: 'Email', 'aria-label' => 'Email'}
+
+			= f.submit 'Submit', class: 'button'

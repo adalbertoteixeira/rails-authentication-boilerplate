@@ -1,0 +1,11 @@
+- provide(:title, 'Forgot Password')
+%h1 Forgot Password
+.row
+	.small-12.columns
+		= form_for(@user, url: password_reset_path(params[:id])) do |f|
+			= render 'shared/error_messages'
+			= hidden_field_tag :email, @user.email
+			= f.password_field :password, {placeholder: 'Password', 'aria-label' => 'Password'}
+			= f.password_field :password_confirmation, {placeholder: 'Password', 'aria-label' => 'Password'}
+
+			= f.submit 'Submit', class: 'button'
